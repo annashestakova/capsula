@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-jost: 'Jost', system-ui, sans-serif;
+
+  --bg: #fdfcf9;
+  --bg-lav: #f4f0fc;
+  --bg-cream: #faf7f2;
+  --ink: #1a1410;
+  --ink-2: #4a3f38;
+  --ink-3: #8a7f78;
+  --lav: #8066d0;
+  --lav-light: #d8d0f7;
+  --lav-pale: #ede8fc;
+  --cream: #c9b08a;
+  --gold: #b8903a;
+  --border: rgba(128, 102, 208, 0.15);
+  --border-strong: rgba(128, 102, 208, 0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-jost);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--lav); border-radius: 2px; }
+
+::selection { background: var(--lav-light); color: var(--ink); }
+
+@layer components {
+
+  /* ─── TYPOGRAPHY ─── */
+  .display-xl {
+    font-family: var(--font-playfair);
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .display-lg {
+    font-family: var(--font-playfair);
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .display-md {
+    font-family: var(--font-cormorant);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    font-family: var(--font-jost);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lav);
+  }
+  .body-serif {
+    font-family: var(--font-cormorant);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn-lav {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--lav);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 0;
+    font-family: var(--font-jost);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+  }
+  .btn-lav:hover {
+    background: #6b4fbb;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(128, 102, 208, 0.3);
+  }
+  .btn-outline-lav {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--lav);
+    border: 1px solid var(--border-strong);
+    padding: 13px 35px;
+    border-radius: 0;
+    font-family: var(--font-jost);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+  }
+  .btn-outline-lav:hover {
+    background: var(--lav-pale);
+    border-color: var(--lav);
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--ink);
+    border: none;
+    padding: 0;
+    font-family: var(--font-jost);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+  .btn-ghost:hover { color: var(--lav); }
+
+  /* ─── CARDS ─── */
+  .card-editorial {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-editorial:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    transform: translateY(-4px);
+  }
+
+  /* ─── SECTION ─── */
+  .section-pad { padding: 100px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .container-sm { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    width: 100%;
+  }
+
+  /* ─── LABEL ─── */
+  .pill-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--lav-pale);
+    border: 1px solid var(--border);
+    color: var(--lav);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+  }
+}
